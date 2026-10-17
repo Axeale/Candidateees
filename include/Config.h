@@ -12,7 +12,7 @@ namespace Config {
   constexpr uint8_t OLED_WIDTH = 128;
   constexpr uint8_t OLED_HEIGHT = 64;
 
-  constexpr float PCA_FREQ_HZ = 50.0f; // frecuencia de PWM para servos y motores
+  constexpr float PCA_FREQ_HZ = 1600; // frecuencia de PWM para motores
 
   // ---- Mapa ----
   constexpr float TILE_LENGTH_CM = 30.0f;

@@ -58,7 +58,7 @@ void Motor::stop() {
 }
 
 void Motor::setReversed(bool reversed) {
-  reversed = reversed;
+  reversed = -reversed;
 }
 
 void Motor::setEncoderInverted(bool inverted) {

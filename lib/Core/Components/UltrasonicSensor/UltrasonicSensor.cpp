@@ -1,22 +1,22 @@
 #include "UltrasonicSensor.h"
 
 UltrasonicSensor::UltrasonicSensor(uint8_t trigPin, uint8_t echoPin)
-  : _trigPin(trigPin), _echoPin(echoPin) {}
+  : trigPin(trigPin), echoPin(echoPin) {}
 
 void UltrasonicSensor::begin() {
-  pinMode(_trigPin, OUTPUT);
-  pinMode(_echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
 }
 
 float UltrasonicSensor::getDistance() {
-  digitalWrite(_trigPin, LOW);
+  digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
 
-  digitalWrite(_trigPin, HIGH);
+  digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
-  digitalWrite(_trigPin, LOW);
+  digitalWrite(trigPin, LOW);
 
-  unsigned long duration = pulseIn(_echoPin, HIGH, TIMEOUT_US);
+  unsigned long duration = pulseIn(echoPin, HIGH, TIMEOUT_US);
   if (duration == 0) return -1.0f;
 
   return duration * SOUND_SPEED / 2.0f;

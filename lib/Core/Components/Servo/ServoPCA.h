@@ -9,16 +9,16 @@
 class ServoPCA {
 public:
   ServoPCA(Adafruit_PWMServoDriver& _pca,
-           uint8_t _channel = Pins::SERVO_PCA,
+           uint8_t _channel = Pins::PWM_SERVO,
            float _pwmFreqHz = Config::PCA_FREQ_HZ);
 
-  void  begin(float startAngle = 90);        // llamar DESPUÉS de pca.setPWMFreq()
+  void  begin(float startAngle = 90);      
 
-  void  write(float angle);                  // 0 a 180 grados
-  void  writeMicroseconds(uint16_t us);      // pulso directo, útil para calibrar
-  void  detach();                            // deja de mandar pulso (el servo queda libre)
+  void  write(float angle); // 0 a 180 grados
+  void  writeMicroseconds(uint16_t us); // pulso directo
+  void  detach();// deja de mandar pulso (el servo se queda en donde esta)
 
-  float getAngle() const { return _angle; }
+  float getAngle() const { return angle; }
   void  setPulseRange(uint16_t minUs, uint16_t maxUs);   // calibra los extremos
 
 private:
